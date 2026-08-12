@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#140018" />
+  <meta name="description" content="RETINA-LAB — laboratório interativo escolar sobre deslocamento da retina, óptica, robótica e programação." />
+  <title>RETINA-LAB — Deslocamento da Retina</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-orbit" id="cursorOrbit" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="RETINA-LAB, voltar ao início">
+      <span class="brand-eye" aria-hidden="true"><i></i></span>
+      <strong>RETINA<span>//LAB</span></strong>
+    </a>
+    <div class="top-status">
+      <span class="status-dot"></span>
+      <span>PROTOCOLO EDUCACIONAL</span>
+    </div>
+    <button class="iris-menu" id="menuToggle" aria-label="Abrir navegação" aria-expanded="false">
+      <span></span><span></span><span></span><span></span><i></i>
+    </button>
+  </header>
+
+  <aside class="protocol-rail" aria-label="Progresso do laboratório">
+    <a href="#inicio" data-section="inicio"><b>00</b><span>Entrada</span></a>
+    <a href="#anatomia" data-section="anatomia"><b>01</b><span>Anatomia</span></a>
+    <a href="#fisica" data-section="fisica"><b>02</b><span>Óptica</span></a>
+    <a href="#descolamento" data-section="descolamento"><b>03</b><span>Retina</span></a>
+    <a href="#sinal" data-section="sinal"><b>04</b><span>Sistema</span></a>
+    <a href="#montagem" data-section="montagem"><b>05</b><span>Montagem</span></a>
+    <a href="#flashcards" data-section="flashcards"><b>06</b><span>Deck</span></a>
+    <a href="#exam" data-section="exam"><b>07</b><span>Exam</span></a>
+  </aside>
+
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <div class="menu-core">
+      <span class="menu-kicker">NAVEGAÇÃO / ÍRIS</span>
+      <nav>
+        <a href="#anatomia"><b>01</b> Explorar o olho</a>
+        <a href="#fisica"><b>02</b> Rastrear a luz</a>
+        <a href="#descolamento"><b>03</b> Mapear o descolamento</a>
+        <a href="#sinal"><b>04</b> Conectar as disciplinas</a>
+        <a href="#montagem"><b>05</b> Montar o protótipo</a>
+        <a href="#flashcards"><b>06</b> Abrir Retina Deck</a>
+        <a href="#exam"><b>07</b> Iniciar RETINA//EXAM</a>
+      </nav>
+      <p>Física/Tecnociência • Robótica • Programação</p>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero section" id="inicio" data-section="inicio">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">ESTUDO INTERATIVO / VISÃO / TECNOLOGIA</p>
+        <h1>O OLHO<br><em>OBSERVA</em><br>VOCÊ.</h1>
+        <p class="hero-lead">Mova o cursor. Depois, entre no olho e acompanhe o que acontece quando a luz chega até uma retina que não está mais em sua posição normal.</p>
+        <a class="text-link" href="#anatomia">ABRIR PROTOCOLO <span>↘</span></a>
+      </div>
+
+      <div class="hero-eye-stage reveal" id="heroEyeStage">
+        <div class="hero-eye" role="img" aria-label="Olho estilizado cuja pupila acompanha o cursor">
+          <div class="eye-lid eye-lid-top"></div>
+          <div class="eye-lid eye-lid-bottom"></div>
+          <div class="iris" id="heroIris">
+            <div class="iris-rings"></div>
+            <div class="pupil" id="heroPupil"></div>
+            <div class="glint"></div>
+          </div>
+        </div>
+        <div class="eye-readout">
+          <span>X <b id="coordX">000</b></span>
+          <span>Y <b id="coordY">000</b></span>
+          <span>TRACK <b>ATIVO</b></span>
+        </div>
+        <button class="anatomy-tag tag-cornea" data-anatomy="cornea">CÓRNEA <i></i></button>
+        <button class="anatomy-tag tag-cristalino" data-anatomy="cristalino">CRISTALINO <i></i></button>
+        <button class="anatomy-tag tag-retina" data-anatomy="retina">RETINA <i></i></button>
+        <button class="anatomy-tag tag-nervo" data-anatomy="nervo">NERVO ÓPTICO <i></i></button>
+        <div class="hero-anatomy-note" id="heroAnatomyNote">Passe o cursor pelos marcadores para revelar a função de cada estrutura.</div>
+      </div>
+
+      <div class="hero-warning">Conteúdo educativo. Alterações súbitas de visão, flashes ou muitas novas “moscas volantes” exigem avaliação médica rápida.</div>
+    </section>
+
+    <section class="section anatomy-section" id="anatomia" data-section="anatomia">
+      <header class="section-head reveal">
+        <p class="eyebrow">PROTOCOLO 01 / ANATOMIA</p>
+        <h2>NÃO DECORE O OLHO.<br><em>INVESTIGUE.</em></h2>
+        <p>Arraste o scanner pela ilustração. O painel mostra o papel da estrutura que estiver sob análise.</p>
+      </header>
+
+      <div class="anatomy-console reveal">
+        <div class="scan-window" id="anatomyScanWindow">
+          <svg class="eye-cross" viewBox="0 0 820 500" role="img" aria-label="Corte esquemático do olho com estruturas principais">
+            <defs>
+              <radialGradient id="vitreous" cx="42%" cy="48%"><stop offset="0" stop-color="#8cf7ff" stop-opacity=".23"/><stop offset="1" stop-color="#7b2cff" stop-opacity=".08"/></radialGradient>
+              <linearGradient id="retinaGrad" x1="0" x2="1"><stop stop-color="#d8ff00"/><stop offset="1" stop-color="#ff2dd1"/></linearGradient>
+            </defs>
+            <path class="sclera" d="M178 250C178 114 317 42 503 59c160 15 239 105 246 191-7 86-86 176-246 191-186 17-325-55-325-191Z"/>
+            <path class="vitreous" d="M265 250c0-108 110-161 252-153 123 8 191 72 198 153-7 81-75 145-198 153-142 8-252-45-252-153Z" fill="url(#vitreous)"/>
+            <path class="cornea" d="M178 163c-70 15-105 51-105 87s35 72 105 87c-27-49-27-125 0-174Z"/>
+            <ellipse class="lens" cx="252" cy="250" rx="42" ry="91"/>
+            <path class="iris-shape" d="M204 170c-19 23-28 49-28 80s9 57 28 80l21-30c-10-14-14-31-14-50s4-36 14-50Z"/>
+            <path class="retina-line" d="M413 84c181-9 289 71 302 166-13 95-121 175-302 166"/>
+            <path class="choroid-line" d="M409 72c196-10 313 76 327 178-14 102-131 188-327 178"/>
+            <path class="optic" d="M713 221c62 3 84 12 108 29-24 17-46 26-108 29"/>
+            <circle class="macula" cx="653" cy="248" r="14"/>
+            <g class="vessels">
+              <path d="M704 250C642 220 590 178 535 150"/><path d="M704 250c-68 11-119 54-169 92"/><path d="M704 250c-81-6-147-11-222-2"/>
+            </g>
+          </svg>
+          <div class="scan-beam" id="scanBeam"></div>
+          <input id="anatomyScanner" type="range" min="5" max="95" value="22" aria-label="Mover scanner anatômico" />
+          <div class="scan-coordinate">SCAN X=<strong id="scanCoord">22</strong></div>
+        </div>
+        <div class="anatomy-readout">
+          <p class="mono">ESTRUTURA DETECTADA</p>
+          <h3 id="anatomyTitle">Córnea</h3>
+          <p id="anatomyText">Primeira superfície transparente do olho. Participa fortemente da refração da luz que entra no sistema óptico.</p>
+          <div class="readout-stats">
+            <span><b id="anatomyRole">ÓPTICA</b> papel principal</span>
+            <span><b id="anatomySignal">ENTRADA</b> no sistema</span>
+          </div>
+          <div class="anatomy-switches" id="anatomySwitches">
+            <button data-target="cornea" class="active">01</button><button data-target="cristalino">02</button><button data-target="retina">03</button><button data-target="macula">04</button><button data-target="nervo">05</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section photon-section" id="fisica" data-section="fisica">
+      <header class="section-head reveal">
+        <p class="eyebrow">PROTOCOLO 02 / FÍSICA & TECNOCIÊNCIA</p>
+        <h2>VOCÊ NÃO ASSISTE À LUZ.<br><em>VOCÊ A DISPARA.</em></h2>
+        <p>Este modelo simplificado mostra refração e formação de imagem. Ajuste o cristalino e lance feixes até observar onde eles encontram a retina.</p>
+      </header>
+
+      <div class="photon-lab reveal">
+        <div class="photon-toolbar">
+          <div>
+            <span>CURVATURA DO CRISTALINO</span>
+            <input type="range" id="lensPower" min="-30" max="40" value="8" />
+          </div>
+          <button id="launchPhoton">LANÇAR FEIXE</button>
+          <button id="clearPhoton" class="ghost">LIMPAR</button>
+        </div>
+        <canvas id="photonCanvas" width="1200" height="620" aria-label="Simulador simplificado do caminho da luz pelo olho"></canvas>
+        <div class="lab-bottom">
+          <span>REFRAÇÃO <b id="refractionValue">1.00</b></span>
+          <span>FOCO <b id="focusValue">RETINA</b></span>
+          <span>MODELO <b>EDUCATIVO</b></span>
+        </div>
+      </div>
+      <p class="model-note">O traçado é uma representação didática, não um simulador clínico de óptica ocular.</p>
+    </section>
+
+    <section class="section detachment-section" id="descolamento" data-section="descolamento">
+      <header class="section-head reveal">
+        <p class="eyebrow">PROTOCOLO 03 / DESLOCAMENTO</p>
+        <h2>ARRASTE A ALTERAÇÃO.<br><em>OBSERVE O CAMPO.</em></h2>
+        <p>Em vez de apenas “ligar um filtro”, o laboratório relaciona uma região da retina a uma alteração representada no campo visual. A posição é invertida no modelo por causa da formação invertida da imagem na retina.</p>
+      </header>
+
+      <div class="mapping-lab reveal">
+        <div class="retina-map-panel">
+          <div class="panel-title"><span>A</span> MAPA DA RETINA</div>
+          <canvas id="retinaMapCanvas" width="620" height="620"></canvas>
+          <div class="map-help">Clique ou arraste sobre a parede posterior do olho.</div>
+        </div>
+        <div class="field-map-panel">
+          <div class="panel-title"><span>B</span> CAMPO VISUAL / REPRESENTAÇÃO</div>
+          <div class="field-view" id="fieldView">
+            <div class="field-scene">
+              <div class="horizon"></div><div class="moon"></div><div class="mountain one"></div><div class="mountain two"></div>
+            </div>
+            <div class="field-shadow" id="fieldShadow"></div>
+            <div class="floaters" id="floaters"><i></i><i></i><i></i><i></i></div>
+            <div class="flash-layer" id="flashLayer"></div>
+          </div>
+          <div class="symptom-controls">
+            <button data-visual="map" class="active">MAPA</button>
+            <button data-visual="floaters">MOSCAS VOLANTES</button>
+            <button data-visual="flashes">FLASHES</button>
+          </div>
+          <p class="model-note">As alterações acima são ilustrações educativas e variam de pessoa para pessoa. Sintomas súbitos podem exigir atendimento urgente.</p>
+        </div>
+      </div>
+
+      <div class="reference-scan reveal">
+        <div class="reference-copy">
+          <p class="eyebrow">REFERÊNCIA VISUAL</p>
+          <h3>DA ILUSTRAÇÃO PARA A ESTRUTURA.</h3>
+          <p>Use o visor para comparar uma retina em posição normal com uma representação de descolamento. As imagens servem como referência de estudo, não como ferramenta de diagnóstico.</p>
+          <div class="scan-tabs">
+            <button class="active" data-scan="compare">COMPARAÇÃO</button>
+            <button data-scan="cut">CORTE 3D</button>
+          </div>
+        </div>
+        <div class="image-scanner" id="imageScanner">
+          <img id="scanImage" src="assets/images/retina-saudavel-vs-descolada.jpg" alt="Ilustração comparando retina em posição normal e retina descolada" />
+          <div class="scanner-loupe" id="scannerLoupe"></div>
+          <div class="scan-grid"></div>
+          <span class="scan-label">RETINA / REF_01</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section signal-section" id="sinal" data-section="sinal">
+      <header class="section-head reveal">
+        <p class="eyebrow">PROTOCOLO 04 / CONEXÃO DAS DISCIPLINAS</p>
+        <h2>TRÊS MATÉRIAS.<br><em>UM ÚNICO SINAL.</em></h2>
+        <p>Aqui elas deixam de ser caixas independentes. Inicie o experimento e acompanhe a mesma informação mudando de forma.</p>
+      </header>
+
+      <div class="signal-console reveal">
+        <div class="signal-stage physics-stage" data-stage="physics">
+          <span class="stage-index">01</span>
+          <strong>FÍSICA / TECNOCIÊNCIA</strong>
+          <h3>LUZ</h3>
+          <p>Refração, lente e formação de imagem definem onde a energia luminosa chega.</p>
+          <div class="live-value">λ <b id="lightValue">540</b> nm</div>
+        </div>
+        <div class="signal-wire"><i></i><i></i><i></i></div>
+        <div class="signal-stage robotics-stage" data-stage="robotics">
+          <span class="stage-index">02</span>
+          <strong>ROBÓTICA</strong>
+          <h3>SENSOR</h3>
+          <p>Um sensor de luz transforma a intensidade recebida em um valor elétrico mensurável.</p>
+          <div class="live-value">ADC <b id="sensorValue">000</b></div>
+        </div>
+        <div class="signal-wire"><i></i><i></i><i></i></div>
+        <div class="signal-stage code-stage" data-stage="code">
+          <span class="stage-index">03</span>
+          <strong>PROGRAMAÇÃO</strong>
+          <h3>DECISÃO</h3>
+          <p>O código lê os dados, compara valores e transforma números em uma resposta visível.</p>
+          <div class="live-value">STATE <b id="codeValue">IDLE</b></div>
+        </div>
+      </div>
+      <div class="signal-controls reveal">
+        <button id="runSignal">EXECUTAR SINAL</button>
+        <div class="signal-log" id="signalLog">Aguardando experimento...</div>
+      </div>
+    </section>
+
+    <section class="section build-section" id="montagem" data-section="montagem">
+      <header class="section-head reveal">
+        <p class="eyebrow">PROTOCOLO 05 / ROBÓTICA</p>
+        <h2>DO CONCEITO À<br><em>MONTAGEM.</em></h2>
+        <p>Proposta de protótipo: um modelo físico de olho com fonte LED, lente e uma “retina” formada por sensores de luz. Uma parte da retina pode mudar de posição para comparar as leituras.</p>
+      </header>
+
+      <div class="build-workbench reveal">
+        <aside class="parts-rack">
+          <p>INVENTÁRIO SUGERIDO</p>
+          <button data-part="controlador"><span>01</span> Arduino ou ESP32</button>
+          <button data-part="sensores"><span>02</span> LDRs / fotossensores</button>
+          <button data-part="lente"><span>03</span> Lente do kit escolar</button>
+          <button data-part="led"><span>04</span> LED branco + resistor</button>
+          <button data-part="servo"><span>05</span> Microservo</button>
+          <button data-part="estrutura"><span>06</span> Estrutura do olho</button>
+          <button data-part="saida"><span>07</span> OLED ou LEDs</button>
+          <div class="part-info" id="partInfo">Selecione uma peça para entender a função no protótipo.</div>
+        </aside>
+        <div class="build-protocol">
+          <div class="build-line"></div>
+          <article class="build-step active" data-step="1"><b>01</b><div><small>DEFINIR</small><h3>O que queremos demonstrar?</h3><p>Comparar como uma mudança de posição da superfície sensora altera a quantidade de luz registrada.</p></div></article>
+          <article class="build-step" data-step="2"><b>02</b><div><small>MODELAR</small><h3>Criar o caminho óptico</h3><p>LED → lente → conjunto de sensores. A estrutura deve permitir alterar a posição de um trecho da “retina”.</p></div></article>
+          <article class="build-step" data-step="3"><b>03</b><div><small>INSTRUMENTAR</small><h3>Transformar luz em dados</h3><p>Cada sensor gera uma leitura. O microcontrolador registra e compara os valores.</p></div></article>
+          <article class="build-step" data-step="4"><b>04</b><div><small>PROGRAMAR</small><h3>Criar a lógica</h3><p>Normalizar leituras, destacar diferenças e mostrar o resultado em LEDs ou display.</p></div></article>
+          <article class="build-step" data-step="5"><b>05</b><div><small>TESTAR</small><h3>Coletar evidências</h3><p>Repetir o teste com retina alinhada e deslocada, mantendo as demais condições o mais constantes possível.</p></div></article>
+          <article class="build-step" data-step="6"><b>06</b><div><small>EXPLICAR</small><h3>Conectar ao conteúdo</h3><p>Relacionar as diferenças observadas ao foco da luz, à posição do sensor e ao processamento dos dados.</p></div></article>
+        </div>
+      </div>
+      <div class="build-schematic reveal">
+        <div class="schematic-node"><span>LED</span><small>fonte de luz</small></div><i>→</i>
+        <div class="schematic-node"><span>LENTE</span><small>refração</small></div><i>→</i>
+        <div class="schematic-node retina-node"><span>RETINA SENSORIAL</span><small>array de LDRs</small></div><i>→</i>
+        <div class="schematic-node"><span>ESP32</span><small>leitura + lógica</small></div><i>→</i>
+        <div class="schematic-node"><span>DISPLAY</span><small>resultado</small></div>
+      </div>
+      <p class="model-note">Proposta pensada para kits escolares de baixa tensão. Use componentes e orientações disponibilizados pelo professor ou laboratório.</p>
+    </section>
+
+    <section class="section flash-section" id="flashcards" data-section="flashcards">
+      <header class="section-head reveal">
+        <p class="eyebrow">PROTOCOLO 06 / FLASHCARDS OBRIGATÓRIOS</p>
+        <h2>RETINA<br><em>DECK.</em></h2>
+        <p>Os flashcards continuam no projeto, mas viraram um baralho de investigação. Escaneie uma carta, pense primeiro e só então revele o verso.</p>
+      </header>
+
+      <div class="deck-console reveal">
+        <div class="deck-stack" id="deckStack">
+          <article class="deck-card" id="deckCard">
+            <div class="deck-front">
+              <span class="deck-type" id="deckType">MITO OU VERDADE</span>
+              <b class="deck-count" id="deckCount">01 / 08</b>
+              <h3 id="deckQuestion">O descolamento da retina sempre causa dor?</h3>
+              <button id="revealCard">REVELAR RESPOSTA</button>
+            </div>
+            <div class="deck-back">
+              <span class="deck-verdict" id="deckVerdict">MITO</span>
+              <p id="deckAnswer">O descolamento de retina costuma ser indolor. Alterações visuais súbitas são sinais importantes de atenção.</p>
+              <button id="hideCard">VOLTAR À PERGUNTA</button>
+            </div>
+          </article>
+        </div>
+        <div class="deck-nav">
+          <button id="prevCard">← ANTERIOR</button>
+          <div class="deck-dots" id="deckDots"></div>
+          <button id="nextCard">PRÓXIMA →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section exam-section" id="exam" data-section="exam">
+      <header class="section-head reveal">
+        <p class="eyebrow">PROTOCOLO 07 / AVALIAÇÃO</p>
+        <h2>RETINA//<em>EXAM.</em></h2>
+        <p>Não é um quiz de clicar e esquecer. O teste mistura interpretação, escrita, associação, ordem lógica e interação direta com o olho.</p>
+      </header>
+
+      <div class="exam-shell reveal" id="examShell">
+        <div class="exam-start" id="examStart">
+          <div class="exam-scan-icon"><i></i></div>
+          <p class="mono">AVALIAÇÃO INTERATIVA</p>
+          <h3>10 DESAFIOS.<br>4 FORMATOS DE RESPOSTA.</h3>
+          <div class="exam-features">
+            <span>RESPOSTA CURTA</span><span>RESPOSTA ABERTA</span><span>ORDENAÇÃO</span><span>IDENTIFICAÇÃO VISUAL</span>
+          </div>
+          <p>Respostas discursivas podem ser avaliadas por IA quando o Supabase estiver configurado. Sem o backend, o site usa uma correção local por conceitos-chave para continuar funcionando no GitHub Pages.</p>
+          <button class="exam-start-button" id="startExam">INICIAR TESTE <span>↗</span></button>
+        </div>
+
+        <div class="exam-running" id="examRunning" hidden>
+          <div class="exam-topline">
+            <span id="examProgressText">QUESTÃO 01 / 10</span>
+            <div class="exam-progress"><i id="examProgressBar"></i></div>
+            <span>PONTOS <b id="examScore">000</b></span>
+          </div>
+          <div class="exam-question-area" id="examQuestionArea"></div>
+          <div class="exam-feedback" id="examFeedback" hidden></div>
+          <div class="exam-actions">
+            <button id="submitAnswer">VERIFICAR RESPOSTA</button>
+            <button id="nextQuestion" hidden>PRÓXIMA QUESTÃO →</button>
+          </div>
+        </div>
+
+        <div class="exam-result" id="examResult" hidden>
+          <p class="mono">RELATÓRIO FINAL</p>
+          <div class="result-ring"><span id="finalScore">0</span><small>/100</small></div>
+          <h3 id="resultTitle">PROTOCOLO CONCLUÍDO</h3>
+          <p id="resultText"></p>
+          <div class="result-breakdown" id="resultBreakdown"></div>
+          <button id="restartExam">REFAZER TESTE</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section source-section" id="fontes">
+      <div class="source-grid reveal">
+        <div>
+          <p class="eyebrow">PESQUISA / FONTES</p>
+          <h2>INFORMAÇÃO<br><em>VERIFICÁVEL.</em></h2>
+        </div>
+        <div class="source-list">
+          <a href="https://www.msdmanuals.com/pt/casa/dist%C3%BArbios-oftalmol%C3%B3gicos/doen%C3%A7as-da-retina/descolamento-da-retina" target="_blank" rel="noopener">MSD Manuals — Descolamento da retina <span>↗</span></a>
+          <a href="https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/retinal-detachment" target="_blank" rel="noopener">National Eye Institute — Retinal Detachment <span>↗</span></a>
+          <a href="https://www.aao.org/eye-health/diseases/detached-torn-retina" target="_blank" rel="noopener">American Academy of Ophthalmology — Detached Retina <span>↗</span></a>
+          <p>Conteúdo revisado em agosto de 2026. O site é educativo e não substitui avaliação profissional.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand">RETINA<span>//LAB</span></div>
+    <p>Projeto escolar • Tecnociência • Robótica • Programação</p>
+    <p>© 2026 Arthur Costa Marcondes. Todos os direitos reservados.</p>
+  </footer>
+
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

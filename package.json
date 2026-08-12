@@ -1,0 +1,13 @@
+{
+  "name": "retina-lab",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Site escolar interativo sobre deslocamento da retina.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}

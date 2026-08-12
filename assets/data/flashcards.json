@@ -1,0 +1,10 @@
+[
+  {"type":"MITO OU VERDADE","question":"O descolamento da retina sempre causa dor?","verdict":"MITO","answer":"O descolamento da retina costuma ser indolor. Alterações visuais súbitas são sinais importantes de atenção."},
+  {"type":"FATO","question":"A retina participa diretamente da detecção da luz?","verdict":"SIM","answer":"A retina é um tecido sensível à luz. Ela contém células fotorreceptoras que iniciam a transformação da luz em sinais nervosos."},
+  {"type":"ÓPTICA","question":"A imagem formada na retina chega orientada do mesmo jeito que o objeto?","verdict":"NÃO","answer":"O sistema óptico do olho forma uma imagem invertida na retina. O cérebro processa essas informações para a percepção visual."},
+  {"type":"CURIOSIDADE","question":"Flashes de luz e novas moscas volantes podem merecer atenção rápida?","verdict":"SIM","answer":"Quando surgem de forma súbita, podem estar associados a alterações do vítreo, rasgo ou descolamento da retina e devem ser avaliados."},
+  {"type":"TECNOLOGIA","question":"Uma imagem da retina, sozinha, transforma um site em ferramenta de diagnóstico?","verdict":"NÃO","answer":"Diagnóstico exige avaliação clínica e exames apropriados. Neste projeto, imagens e simulações têm finalidade exclusivamente educativa."},
+  {"type":"ROBÓTICA","question":"Um sensor de luz pode representar, de forma didática, a ideia de captar intensidade luminosa?","verdict":"SIM","answer":"No protótipo escolar, fotossensores podem converter a luz recebida em valores elétricos para comparação e visualização."},
+  {"type":"PROGRAMAÇÃO","question":"O código pode comparar leituras de vários sensores e destacar mudanças?","verdict":"SIM","answer":"O microcontrolador pode ler cada canal, normalizar os valores e mostrar diferenças em LEDs, gráfico ou display."},
+  {"type":"MITO OU VERDADE","question":"Se a visão voltar ao normal rapidamente, qualquer alteração súbita pode ser ignorada?","verdict":"MITO","answer":"Mudanças súbitas na visão merecem atenção. Este site não substitui avaliação de um profissional de saúde."}
+]

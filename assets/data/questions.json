@@ -1,0 +1,32 @@
+[
+  {
+    "id":"q1","type":"visual","category":"Anatomia","title":"Clique diretamente na retina no corte do olho.","hint":"A retina reveste internamente a região posterior do globo ocular.","answer":"retina","points":10
+  },
+  {
+    "id":"q2","type":"order","category":"Óptica","title":"Coloque o caminho simplificado da luz na ordem correta.","items":["Retina","Córnea","Cristalino","Luz"],"answer":["Luz","Córnea","Cristalino","Retina"],"points":10
+  },
+  {
+    "id":"q3","type":"short","category":"Anatomia","title":"Qual estrutura sensível à luz reveste a parte interna posterior do olho?","placeholder":"Digite uma resposta curta...","keywords":["retina"],"answerText":"retina","points":10
+  },
+  {
+    "id":"q4","type":"choice","category":"Saúde ocular","title":"Qual conjunto merece avaliação médica rápida quando surge de forma súbita?","options":["Apenas coceira leve","Muitas novas moscas volantes, flashes e sombra no campo visual","Piscar depois de olhar para uma tela","Lacrimejamento ao cortar cebola"],"answer":1,"points":10
+  },
+  {
+    "id":"q5","type":"match","category":"Integração","title":"Relacione cada ação à área que mais diretamente a representa no protótipo.","pairs":[{"label":"Refração e formação da imagem","answer":"Física/Tecnociência"},{"label":"Leitura de fotossensores","answer":"Robótica"},{"label":"Comparar valores e gerar resposta","answer":"Programação"}],"options":["Física/Tecnociência","Robótica","Programação"],"points":10
+  },
+  {
+    "id":"q6","type":"long","category":"Conceito","title":"Explique, com suas palavras, o que significa deslocamento da retina e por que isso pode afetar a visão.","placeholder":"Escreva uma explicação de 2 a 5 linhas...","reference":"O descolamento acontece quando a retina se separa de sua posição normal na parede posterior do olho. Como ela participa da detecção da luz, essa separação prejudica seu funcionamento e pode causar perda de parte da visão.","requiredConcepts":["separação da retina","posição normal ou parede posterior","captação ou detecção da luz","prejuízo ou perda visual"],"points":10
+  },
+  {
+    "id":"q7","type":"choice","category":"Óptica","title":"O que é refração?","options":["Mudança de direção da luz ao passar entre meios com propriedades ópticas diferentes","Produção de luz pela retina","Bloqueio total da luz pela pupila","Transformação direta de luz em som"],"answer":0,"points":10
+  },
+  {
+    "id":"q8","type":"short","category":"Robótica","title":"No protótipo proposto, qual componente converte a intensidade de luz em uma leitura elétrica?","placeholder":"Ex.: nome do componente ou tipo de sensor...","keywords":["ldr","fotossensor","sensor de luz","fotoresistor","fotodiodo"],"answerText":"LDR ou outro fotossensor","points":10
+  },
+  {
+    "id":"q9","type":"order","category":"Protótipo","title":"Organize a sequência de trabalho do protótipo.","items":["Testar e comparar","Programar a leitura","Definir o que demonstrar","Montar o caminho óptico"],"answer":["Definir o que demonstrar","Montar o caminho óptico","Programar a leitura","Testar e comparar"],"points":10
+  },
+  {
+    "id":"q10","type":"long","category":"Integração","title":"Como Física/Tecnociência, Robótica e Programação trabalham juntas no RETINA-LAB?","placeholder":"Conecte as três áreas em uma única explicação...","reference":"A Física/Tecnociência explica a luz, a refração, as lentes e a formação da imagem. A Robótica usa sensores e um microcontrolador para captar valores. A Programação processa essas leituras, compara dados e apresenta o resultado.","requiredConcepts":["luz ou refração ou lentes","sensores ou microcontrolador","programação ou código","processar ou comparar dados"],"points":10
+  }
+]
